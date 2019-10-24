@@ -34,7 +34,6 @@ public class SpecificationBuilder {
         if(jsonSpec == null || "{}".equals(jsonSpec) || "".equals(jsonSpec)){
             return Optional.empty();
         }
-        Specification specification = reader.readValue(jsonSpec);
-        return specification != null ? Optional.of(specification) : Optional.empty();
+        return Optional.ofNullable(reader.readValue(jsonSpec));
     }
 }
